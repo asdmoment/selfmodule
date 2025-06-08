@@ -2,13 +2,7 @@
 #!desc=仅做整理整合，作者：RuCu6，ZenmoFeiShi，可莉等
 #!category=去广告
 
-[General]
-#>哔哩哔哩
-force-http-engine-hosts = %APPEND% :8000
-
 [Rule]
-#>12306
-DOMAIN,ad.12306.cn,DIRECT
 
 #>航旅纵横
 URL-REGEX,^http?:\/\/(discardrp|startup)\.umetrip\.com\/gateway\/api\/umetrip\/native,REJECT,extended-matching
@@ -32,9 +26,6 @@ http-response-jq ^https:\/\/api\.gotokeep\.com\/twins\/v4\/feed\/followPage 'if 
 http-response-jq ^https:\/\/api\.gotokeep\.com\/twins\/v4\/feed\/entryDetail 'if (getpath([]) | has("data")) then (setpath(["data"]; "{}")) else . end'
 
 [Map Local]
-#>百度云 //pan.baidu.com
-^https:\/\/pan\.baidu\.com\/(?:act\/|aipic\/|aisearch\/|api\/getsyscfg\?|rest\/) data-type=text data="{}" status-code=200
-
 #>交管12123 //gab.122.gov.cn
 ^https:\/\/gab\.122\.gov\.cn\/eapp\/m\/sysquery\/adver data-type=text data="{}" status-code=200
 
@@ -93,4 +84,4 @@ http-response-jq ^https:\/\/api\.gotokeep\.com\/twins\/v4\/feed\/entryDetail 'if
 Keep = type=http-response, pattern=^https:\/\/api\.gotokeep\.com\/config\/v3\/basic, script-path=https://raw.ananaskop.com/Scripts/Keep.js, requires-body=true
 
 [MITM]
-hostname = %APPEND% *.weibo.cn, *.weibo.com, weibo.com, cn-acs.m.cainiao.com, acs.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com, ad.12306.cn, mobile.12306.cn, *api.alipan.com, member.alipan.com, pan.baidu.com, image.mybank.icbc.com.cn, gab.122.gov.cn, flowplus.meituan.net, img.meituan.net, s3plus.meituan.net, osg-service.sgcc.com.cn, home.mi.com, wallet.95516.com, *.hupu.com, api.pinduoduo.com, video-dsp.pddpic.com, t-dsp.pinduoduo.com, images.pinduoduo.com, api.yangkeduo.com, 114.115.217.129, home.umetrip.com, edith.xiaohongshu.com, www.xiaohongshu.com, rec.xiaohongshu.com, m5.amap.com, m5-zb.amap.com, oss.amap.com, sns.amap.com, common.diditaxi.com.cn, freight.xiaojukeji.com, daijia.kuaidadi.com, ct.xiaojukeji.com, res.xiaojukeji.com, conf.diditaxi.com.cn, api.udache.com, 123.207.209.*, 112.53.55.225, 120.241.142.*, 120.241.143.*, 116.85.2.*, 116.85.3.*, 139.199.240.84, api.caiyunapp.com, *.cyapi.cn, m.baidu.com, www.baidu.com, zhidao.baidu.com, *.m.goofish.com, kad.gotokeep.com, 42.187.199.248, api.gotokeep.com, app.bilibili.com, api.bilibili.com, api.live.bilibili.com, grpc.biliapi.net, www.bilibili.com, m.bilibili.com, live.bilibili.com
+hostname = %APPEND% gab.122.gov.cn, flowplus.meituan.net, img.meituan.net, s3plus.meituan.net, osg-service.sgcc.com.cn, home.mi.com, wallet.95516.com, *.hupu.com, 114.115.217.129, home.umetrip.com， 123.207.209.*, 112.53.55.225, 120.241.142.*, 120.241.143.*, 116.85.2.*, 116.85.3.*, 139.199.240.84, api.caiyunapp.com, *.cyapi.cn, m.baidu.com, www.baidu.com, zhidao.baidu.com,kad.gotokeep.com, 42.187.199.248, api.gotokeep.com

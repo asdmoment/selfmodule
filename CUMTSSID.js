@@ -7,11 +7,11 @@ function switchPolicyBySSID() {
 
   if (currentSSID === targetSSID) {
     $surge.setSelectGroupPolicy(groupName, "DIRECT");
-    // console.log(`检测到 SSID: ${currentSSID}，策略组 '${groupName}' 已切换至 DIRECT`);
+    console.log(`检测到 SSID: ${currentSSID}，策略组 '${groupName}' 已切换至 DIRECT`);
   } else {
     // 如果不是，就切换到 PROXY
     $surge.setSelectGroupPolicy(groupName, "cumtvpn");
-    // console.log(`SSID: ${currentSSID}，策略组 '${groupName}' 已切换至 cumtvpn`);
+    console.log(`SSID: ${currentSSID}，策略组 '${groupName}' 已切换至 cumtvpn`);
   }
 }
 

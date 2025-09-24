@@ -9,7 +9,7 @@ const campusSsid = 'CUMT_Stu';
 // 主函数
 function main() {
     // 检查是否是网络变化事件，并且连接到了指定的校园网 Wi-Fi
-    if ($event.type === 'network-changed' && $network.ssid === campusSsid) {
+    if ($event.type === 'network-changed' && $network.wifi.ssid === campusSsid) {
         console.log('检测到连接校园网 Wi-Fi，准备执行登录脚本...');
         login();
     } else {
